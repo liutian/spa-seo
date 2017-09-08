@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "spa-seo-1",
+      "script": "./index.js",
+      "args": "--preUrl=https://man.visionet.cn/ --port=30000",
+      "node_args": "",
+      "max_memory_restart": "2G"
+    }
+  ]
+}

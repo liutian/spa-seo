@@ -1,0 +1,16 @@
+{
+  "name": "spa-seo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js --preUrl=https://man.visionet.cn/ --port=30003"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "2.3.0",
+    "puppeteer": "0.10.2",
+    "yargs": "8.0.2"
+  }
+}
