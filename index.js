@@ -9,7 +9,7 @@ let visitCount = 0;
 
 // 初始化浏览器实例
 (async () => {
-  browser = await puppeteer.launch();
+  browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 })();
 
 // 接收请求
@@ -27,7 +27,10 @@ app.use(async (ctx) => {
   })
 
   let fetchTime = Date.now();
-  await page.goto((env.preUrl || 'http://127.0.0.1/') + ctx.url);
+  let url = (env.preUrl || 'http://127.0.0.1') + ctx.url;
+  console.log(`start fetch page(${visitId}) : ${url}`);
+  await page.goto(url);
+  console.log(`after fetch page(${visitId})`);
   await renderReadyFactory(visitId);
   let content = await page.content();
   ctx.set('fetch-time', Date.now() - fetchTime);
@@ -45,6 +48,10 @@ console.log('listen ' + port);
 function renderReadyFactory(visitId) {
   return new Promise((resolve, reject) => {
     visitMap.set(visitId, [resolve, reject]);
+    setTimeout(() => {
+      reject(new Error(`waiting for "renderReady" timeout (${visitId})`));
+      visitMap.delete(visitId);
+    }, 5000);
   });
 }
 

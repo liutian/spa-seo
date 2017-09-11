@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js --preUrl=https://man.visionet.cn/ --port=30003"
+    "start": "node index.js --preUrl=http://127.0.0.1/ --port=30003"
   },
   "author": "",
   "license": "ISC",
