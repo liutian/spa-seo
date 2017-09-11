@@ -6,3 +6,4 @@
 
 *** 确保该服务器可以和目标服务器进行通信
 *** 目标服务器 nginx 关键配置参见 nginx.conf
+*** 参考 http://tool.chinaz.com/robots/  生成对爬虫友好的配置
